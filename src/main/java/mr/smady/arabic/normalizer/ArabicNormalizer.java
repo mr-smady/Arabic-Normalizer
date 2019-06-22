@@ -36,21 +36,28 @@ public class ArabicNormalizer {
 			'\u06E2', '\u06E3', '\u06E4', '\u06E7', '\u06E8', '\u06EA', '\u06EB', '\u06EC', '\uFE76', '\uFE77',
 			'\uFE78', '\uFE7A', '\uFE7B', '\uFE7C', '\uFE7E', };
 
-	private static final String[] ARABIC_REPLACE = { "\uFEFF ف", "\u060F ع", "\u0629 ه", "\u0622 ا", "\u0623 ا",
-			"\u0625 ا", "\u0649 ي", "\uFE80 ء", "\uFE81 ا", "\uFE82 ا", "\uFE83 ا", "\uFE84 ا", "\uFE85 ؤ", "\uFE86 ؤ",
-			"\uFE87 ا", "\uFE88 ا", "\uFE8B ئ", "\uFE8C ئ", "\uFE8D ا", "\uFE8E ا", "\uFE8F ب", "\uFE90 ب", "\uFE91 ب",
-			"\uFE92 ب", "\uFE93 ه", "\uFE94 ه", "\uFE95 ت", "\uFE96 ت", "\uFE97 ت", "\uFE98 ت", "\uFE99 ث", "\uFE9B ث",
-			"\uFE9C ث", "\uFE9D ج", "\uFE9F ج", "\uFEA0 ج", "\uFEA1 ح", "\uFEA2 ح", "\uFEA3 ح", "\uFEA4 ح", "\uFEA5 خ",
-			"\uFEA6 خ", "\uFEA7 خ", "\uFEA8 خ", "\uFEA9 د", "\uFEAA د", "\uFEAB ذ", "\uFEAC ذ", "\uFEAD ر", "\uFEAE ر",
-			"\uFEAF ز", "\uFEB0 ز", "\uFEB1 س", "\uFEB2 س", "\uFEB3 س", "\uFEB4 س", "\uFEB5 ش", "\uFEB6 ش", "\uFEB7 ش",
-			"\uFEB8 ش", "\uFEB9 ص", "\uFEBA ص", "\uFEBB ص", "\uFEBC ص", "\uFEBD ض", "\uFEBE ض", "\uFEBF ض", "\uFEC0 ض",
-			"\uFEC1 ط", "\uFEC2 ط", "\uFEC3 ط", "\uFEC4 ط", "\uFEC5 ظ", "\uFEC7 ظ", "\uFEC8 ظ", "\uFEC9 ع", "\uFECA ع",
-			"\uFECB ع", "\uFECC ع", "\uFECD غ", "\uFECF غ", "\uFED0 غ", "\uFED1 ف", "\uFED2 ف", "\uFED3 ف", "\uFED4 ف",
-			"\uFED5 ق", "\uFED6 ق", "\uFED7 ق", "\uFED8 ق", "\uFED9 ك", "\uFEDA ك", "\uFEDB ك", "\uFEDC ك", "\uFEDD ل",
-			"\uFEDE ل", "\uFEDF ل", "\uFEE0 ل", "\uFEE1 م", "\uFEE2 م", "\uFEE3 م", "\uFEE4 م", "\uFEE5 ن", "\uFEE6 ن",
-			"\uFEE7 ن", "\uFEE8 ن", "\uFEE9 ه", "\uFEEA ه", "\uFEEB ه", "\uFEEC ه", "\uFEED و", "\uFEEE و", "\uFEEF ي",
-			"\uFEF0 ي", "\uFEF1 ي", "\uFEF2 ي", "\uFEF3 ي", "\uFEF4 ي", "\uFEF5 لا", "\uFEF6 لا", "\uFEF7 لا",
-			"\uFEF8 لا", "\uFEF9 لا", "\uFEFB لا", "\uFEFC لا", };
+	private static final String[] ARABIC_REPLACE = { "\uFEFF \u0641", "\u060F \u0639", "\u0629 \u0647", "\u0622 \u0627",
+			"\u0623 \u0627", "\u0625 \u0627", "\u0649 \u064A", "\uFE80 \u0621", "\uFE81 \u0627", "\uFE82 \u0627",
+			"\uFE83 \u0627", "\uFE84 \u0627", "\uFE85 \u0624", "\uFE86 \u0624", "\uFE87 \u0627", "\uFE88 \u0627",
+			"\uFE8B \u0626", "\uFE8C \u0626", "\uFE8D \u0627", "\uFE8E \u0627", "\uFE8F \u0628", "\uFE90 \u0628",
+			"\uFE91 \u0628", "\uFE92 \u0628", "\uFE93 \u0647", "\uFE94 \u0647", "\uFE95 \u062A", "\uFE96 \u062A",
+			"\uFE97 \u062A", "\uFE98 \u062A", "\uFE99 \u062B", "\uFE9B \u062B", "\uFE9C \u062B", "\uFE9D \u062C",
+			"\uFE9F \u062C", "\uFEA0 \u062C", "\uFEA1 \u062D", "\uFEA2 \u062D", "\uFEA3 \u062D", "\uFEA4 \u062D",
+			"\uFEA5 \u062E", "\uFEA6 \u062E", "\uFEA7 \u062E", "\uFEA8 \u062E", "\uFEA9 \u062F", "\uFEAA \u062F",
+			"\uFEAB \u0630", "\uFEAC \u0630", "\uFEAD \u0631", "\uFEAE \u0631", "\uFEAF \u0632", "\uFEB0 \u0632",
+			"\uFEB1 \u0633", "\uFEB2 \u0633", "\uFEB3 \u0633", "\uFEB4 \u0633", "\uFEB5 \u0634", "\uFEB6 \u0634",
+			"\uFEB7 \u0634", "\uFEB8 \u0634", "\uFEB9 \u0635", "\uFEBA \u0635", "\uFEBB \u0635", "\uFEBC \u0635",
+			"\uFEBD \u0636", "\uFEBE \u0636", "\uFEBF \u0636", "\uFEC0 \u0636", "\uFEC1 \u0637", "\uFEC2 \u0637",
+			"\uFEC3 \u0637", "\uFEC4 \u0637", "\uFEC5 \u0638", "\uFEC7 \u0638", "\uFEC8 \u0638", "\uFEC9 \u0639",
+			"\uFECA \u0639", "\uFECB \u0639", "\uFECC \u0639", "\uFECD \u063A", "\uFECF \u063A", "\uFED0 \u063A",
+			"\uFED1 \u0641", "\uFED2 \u0641", "\uFED3 \u0641", "\uFED4 \u0641", "\uFED5 \u0642", "\uFED6 \u0642",
+			"\uFED7 \u0642", "\uFED8 \u0642", "\uFED9 \u0643", "\uFEDA \u0643", "\uFEDB \u0643", "\uFEDC \u0643",
+			"\uFEDD \u0644", "\uFEDE \u0644", "\uFEDF \u0644", "\uFEE0 \u0644", "\uFEE1 \u0645", "\uFEE2 \u0645",
+			"\uFEE3 \u0645", "\uFEE4 \u0645", "\uFEE5 \u0646", "\uFEE6 \u0646", "\uFEE7 \u0646", "\uFEE8 \u0646",
+			"\uFEE9 \u0647", "\uFEEA \u0647", "\uFEEB \u0647", "\uFEEC \u0647", "\uFEED \u0648", "\uFEEE \u0648",
+			"\uFEEF \u064A", "\uFEF0 \u064A", "\uFEF1 \u064A", "\uFEF2 \u064A", "\uFEF3 \u064A", "\uFEF4 \u064A",
+			"\uFEF5 \u0644\u0627", "\uFEF6 \u0644\u0627", "\uFEF7 \u0644\u0627", "\uFEF8 \u0644\u0627",
+			"\uFEF9 \u0644\u0627", "\uFEFB \u0644\u0627", "\uFEFC \u0644\u0627", };
 
 	private static ArabicNormalizer THIS;
 
